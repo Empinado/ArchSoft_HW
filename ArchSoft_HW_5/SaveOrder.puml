@@ -1,0 +1,40 @@
+@startuml
+class HW_5.Program {
++ {static} void main(String[])
+}
+interface HW_5.View.ConsoleInput {
+~ void inputFromConsole()
+}
+abstract class HW_5.Order.Order {
+# String clientName
+# String product
+# int qnt
+# double price
+~ {static} int counter
++ {static} int id
++ int getId()
++ void saveToJson()
++ void saveToTxt()
++ void saveToAllFormat()
++ void inputFromConsole()
+- String prompt(String)
+}
+class HW_5.Model.IndividualOrder {
+}
+class HW_5.Model.EntityOrder {
+~ double discount
++ double getDiscount()
++ void setDiscount(double)
+}
+interface HW_5.View.SaveToFile {
+~ void saveToJson()
+~ void saveToTxt()
+~ void saveToAllFormat()
+}
+
+
+HW_5.View.SaveToFile <|.. HW_5.Order.Order
+HW_5.View.ConsoleInput <|.. HW_5.Order.Order
+HW_5.Order.Order <|-- HW_5.Model.IndividualOrder
+HW_5.Order.Order <|-- HW_5.Model.EntityOrder
+@enduml
