@@ -1,0 +1,22 @@
+@startuml
+class ProjectRunner {
++ {static} void main(String[])
+}
+interface Project {
++ void run()
+}
+class RealProject {
+- String url
++ void load()
++ void run()
+}
+class ProxyProject {
+- String url
+- RealProject realProject
++ void run()
+}
+
+
+Project <|.. RealProject
+Project <|.. ProxyProject
+@enduml

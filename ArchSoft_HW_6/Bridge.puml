@@ -1,0 +1,31 @@
+@startuml
+class Bridge.GreenColor {
++ void fillColor()
+}
+class Bridge.Rectangle {
++ void draw()
+}
+class Bridge.BlackColor {
++ void fillColor()
+}
+class Bridge.Triangle {
++ void draw()
+}
+class Bridge.RedColor {
++ void fillColor()
+}
+abstract class Bridge.Shape {
+# Color color
++ {abstract}void draw()
+}
+interface Bridge.Color {
+~ void fillColor()
+}
+
+
+Bridge.Color <|.. Bridge.GreenColor
+Bridge.Shape <|-- Bridge.Rectangle
+Bridge.Color <|.. Bridge.BlackColor
+Bridge.Shape <|-- Bridge.Triangle
+Bridge.Color <|.. Bridge.RedColor
+@enduml
