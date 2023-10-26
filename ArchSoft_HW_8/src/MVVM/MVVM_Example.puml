@@ -1,0 +1,23 @@
+@startuml
+class MVVM.viewModel.BooksViewModel {
+- List<Book> books
++ String getDisplayableBooks()
++ void markBookAsRead(int)
+}
+class MVVM.model.Book {
+- String title
+- boolean isRead
++ void markAsRead()
++ boolean isRead()
++ String toString()
+}
+class MVVM.view.MVVMPatternDemo {
++ {static} void main(String[])
+}
+
+MVVM.model.Book ...|> MVVM.viewModel.BooksViewModel
+MVVM.viewModel.BooksViewModel ...|> MVVM.view.MVVMPatternDemo
+MVVM.view.MVVMPatternDemo ---|> MVVM.viewModel.BooksViewModel
+MVVM.viewModel.BooksViewModel ---|> MVVM.model.Book
+
+@enduml
